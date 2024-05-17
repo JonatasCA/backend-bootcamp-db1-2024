@@ -4,17 +4,17 @@ const validateLogin = checkSchema(
   {
     email: {
       isEmail: {
-        errorMessage: 'O email deve ser um endereço de e-mail válido.',
+        errorMessage: 'O e-mail deve ser um endereço de e-mail válido.',
       },
       isLength: {
         options: {
           max: 200,
           min: 1,
         },
-        errorMessage: 'O email deve ter no mínimo 1 e no máximo 200 caracteres.',
+        errorMessage: 'O e-mail deve ter no mínimo 1 e no máximo 200 caracteres.',
       },
       notEmpty: {
-        errorMessage: 'O email é requerido.',
+        errorMessage: 'O e-mail é requerido.',
       },
     },
     password: {
@@ -36,6 +36,7 @@ const validateLogin = checkSchema(
   ['body'],
 );
 
+
 const validateCreateUser = checkSchema(
   {
     name: {
@@ -55,17 +56,17 @@ const validateCreateUser = checkSchema(
     },
     email: {
       isEmail: {
-        errorMessage: 'O email deve ser um endereço de e-mail válido.',
+        errorMessage: 'O e-mail deve ser um endereço de e-mail válido.',
       },
       isLength: {
         options: {
           max: 200,
           min: 1,
         },
-        errorMessage: 'O email deve ter no mínimo 1 e no máximo 200 caracteres.',
+        errorMessage: 'O e-mail deve ter no mínimo 1 e no máximo 200 caracteres.',
       },
       notEmpty: {
-        errorMessage: 'O email é requerido.',
+        errorMessage: 'O e-mail é requerido.',
       },
     },
     password: {

@@ -7,6 +7,7 @@ const User = require('../models/User');
 const { comparePassword } = require('../utils/password');
 const { generateUserToken } = require('../utils/token');
 
+
 const router = express.Router();
 
 function isUniqueEmailError(error) {
@@ -38,7 +39,7 @@ router.post(
       });
       user = await User.findByPk(user.id);
 
-      res.status(201).json(user);
+      res.status(201).send();
     } catch (error) {
       console.warn(error);
       if (isUniqueEmailError(error)) {
@@ -72,7 +73,7 @@ router.post(
           include: ['password'],
         },
       });
-
+      
       if (
         !user
         || !comparePassword(password, user.get('password'))
@@ -87,6 +88,8 @@ router.post(
       const token = generateUserToken(userPayload);
 
       res.status(200).json({ token });
+
+      res.status(200).json(user);
     } catch (error) {
       console.warn(error);
       res.status(500).send();

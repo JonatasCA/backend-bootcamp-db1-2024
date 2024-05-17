@@ -119,4 +119,3 @@ Todas as rotas autenticadas exigem que o `token jwt` seja passado no cabeçalho 
 >     "concluded": false
 > }
 > ```
-
