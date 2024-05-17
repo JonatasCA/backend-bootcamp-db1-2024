@@ -17,13 +17,18 @@ app.use(cors({
   origin: [
     // Libera o servidor na núvem
     /.*.douglasjunior.xyz$/,
+    /.*gerenciador-tarefas-douglas.netlify.app$/,
+    /.*gerenciador-tarefas-pi.vercel.app$/,
     // Libera acesso local
     /http:\/\/(localhost|127.0.0.1)(:\d+){0,1}$/,
   ],
   maxAge: 3600,
 }));
 
-app.use(logger('dev'));
+if (process.env.NODE_ENV !== 'test') {
+  app.use(logger('dev'));
+}
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
