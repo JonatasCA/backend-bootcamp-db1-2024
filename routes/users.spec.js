@@ -16,9 +16,9 @@ describe('users', () => {
       const response = await request(app)
         .post('/users')
         .send({
-          name: 'Douglas Junior',
-          email: 'douglas@mail.com',
-          password: 'senha123',
+          name: 'Jonatas Araujo',
+          email: 'jonatas1608@gmail.com',
+          password: 'senha321',
         })
         .accept('application/json')
         .expect('Content-Type', 'application/json; charset=utf-8');
@@ -26,8 +26,8 @@ describe('users', () => {
       expect(response.statusCode).toBe(201);
       expect(response.body).toEqual({
         id: 1,
-        name: 'Douglas Junior',
-        email: 'douglas@mail.com',
+        name: 'Jonatas Araujo',
+        email: 'jonatas1608@gmail.com',
         created_at: expect.any(String),
         updated_at: expect.any(String),
       });
@@ -38,8 +38,8 @@ describe('users', () => {
         .post('/users')
         .send({
           name: 123456,
-          email: 'douglas@mail.com',
-          password: 'senha123',
+          email: 'jonatas608@gmail.com',
+          password: 'senha321',
         })
         .accept('application/json')
         .expect('Content-Type', 'application/json; charset=utf-8');
@@ -58,17 +58,17 @@ describe('users', () => {
       await request(app)
         .post('/users')
         .send({
-          name: 'Douglas Junior',
-          email: 'douglas2@mail.com',
-          password: 'senha123',
+          name: 'Jonatas Araujo',
+          email: 'jonatas608@gmail.com',
+          password: 'senha321',
         })
         .accept('application/json');
       const response = await request(app)
         .post('/users')
         .send({
           name: 'Douglas Junior',
-          email: 'douglas2@mail.com',
-          password: 'senha123',
+          email: 'jonatas608@gmail.com',
+          password: 'senha321',
         })
         .accept('application/json')
         .expect('Content-Type', 'text/html; charset=utf-8');
